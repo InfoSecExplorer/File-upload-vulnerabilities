@@ -91,7 +91,7 @@
 5. As much as possible, use an established framework for preprocessing file uploads rather than attempting to write your own validation mechanisms.
 
 
-
+Testing For File-Upload and Exploiting - https://kathan19.gitbook.io/howtohunt/file-upload-bypass/file_upload
 
 
 
