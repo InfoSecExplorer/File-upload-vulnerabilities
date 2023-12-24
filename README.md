@@ -2,6 +2,8 @@
 
 * File upload vulnerabilities are when a web server allows users to upload files to its filesystem without sufficiently validating things like their name, type, contents, or size. Failing to properly enforce restrictions on these could mean that even a basic image upload function can be used to upload arbitrary and potentially dangerous files instead. This could even include server-side script files that enable remote code execution.
 
+![rce1](https://github.com/InfoSecExplorer/File-upload-vulnerabilities/assets/145893728/42552d35-2705-440a-a6da-55c959752daa)
+
 # What is the impact of file upload vulnerabilities?
 
 **The impact of file upload vulnerabilities generally depends on two key factors:**
@@ -45,6 +47,8 @@
 
 *  As you can see, the message body is split into separate parts for each of the form's inputs. Each part contains a Content-Disposition header, which provides some basic information about the input field it relates to. These individual parts may also contain their own Content-Type header, which tells the server the MIME type of the data that was submitted using this input.
 
+![rce2](https://github.com/InfoSecExplorer/File-upload-vulnerabilities/assets/145893728/063e32ff-4ba2-4b50-818c-8ef5ffe2ee8d)
+
 * One way that websites may attempt to validate file uploads is to check that this input-specific Content-Type header matches an expected MIME type. If the server is only expecting image files, for example, it may only allow types like image/jpeg and image/png. Problems can arise when the value of this header is implicitly trusted by the server. If no further validation is performed to check whether the contents of the file actually match the supposed MIME type, this defense can be easily bypassed using tools like Burp Repeater.
 
 # Web shell upload via extension blacklist bypass
@@ -66,6 +70,8 @@
 # Uploading files using PUT
 
 * It's worth noting that some web servers may be configured to support PUT requests. If appropriate defenses aren't in place, this can provide an alternative means of uploading malicious files, even when an upload function isn't available via the web interface.
+
+![rce3](https://github.com/InfoSecExplorer/File-upload-vulnerabilities/assets/145893728/08eb3cb6-ce30-4cce-aa15-e08744b10d0f)
  
 **Tip**
 * You can try sending OPTIONS requests to different endpoints to test for any that advertise support for the PUT method.
